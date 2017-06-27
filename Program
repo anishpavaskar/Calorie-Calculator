@@ -1,0 +1,121 @@
+#include <stdio.h>
+
+int main(void)
+
+{
+
+   char array[100];
+
+   int age, height,weight;
+
+   int bas;
+
+   int act;
+
+   int total;
+
+   printf(“Hi,Enter your name!!!\n”);
+
+   scanf(“%s”, array);
+
+   printf(“Hello %s please enter your age,height (in inches),and weight (in pounds) in a list seperated by spaces.\n”,array);
+
+   printf(” Note:Please enter integers\n”);
+
+   scanf(“%d %d %d”, &age, &height, &weight);
+
+       if ((age > 0) & (height >0) & (weight >0) )
+
+       {
+
+       //need to find Basal rate and then add some amount to comp for work
+
+       //BMR= 10*weight(kg)+6.25(h)(in cm)+5*years+78
+
+//printf(“%s your age,height,and weight are %d ,%d , %d\n “, array, age, height, weight);
+
+bas = (4.54*weight) + (15.875*height) + (5*age)+78;
+
+//used infof rom this link: https://www.healthstatus.com/calculate/basal-metabolic-rate
+
+            //printf(“Your Basal Metabolism Rate is %d calories!\n”, bas);
+
+printf(“%s how active are you?\n”, array);
+
+printf(“Enter an integer  from 1-10,where 1 is minimal work and 10 is extreme activity\n”);
+
+scanf(“%d”, &act);
+
+//testsif
+
+if ( act > 0 && act <= 10)
+
+{
+
+if ( act > 0 && act <= 2)
+
+{
+
+total = bas;
+
+//printf(“Your recommended calorie consumption per day is %d”, total);
+
+}
+
+if ( act > 2 && act <=5)
+
+{
+
+   total = bas + 420;
+
+//printf(“Your recommended calorie consumption per day is %d”, total);
+
+}
+
+if (act >5 && act <=8)
+
+{
+
+   total = bas + 840;
+
+//printf(“Your recommended calorie consumption per day is %d”, total);
+
+}
+
+if (act > 8 && act <= 10)
+
+{
+
+total = bas + 1260;
+
+//printf(“Your recommended calorie consumption per day is %d”, total);
+
+}
+
+printf(“%s,\n”, array);
+
+printf(“Your Basal Metabolism Rate is %d calories!\n”, bas);
+
+printf(“And your recommended calorie consumption per day is %d\n”, total);
+
+}
+
+else {
+
+printf(“Please enter an integer between 1 and 10\n “);
+
+       }
+
+       }
+
+    else
+
+    {
+
+        printf(“Please enter positive values for age height and weight”);
+
+    }
+
+   return 0;
+
+}
